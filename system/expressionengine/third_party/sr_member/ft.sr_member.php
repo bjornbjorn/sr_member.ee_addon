@@ -9,7 +9,7 @@ class Sr_member_ft extends Select_ft {
 
     var $info = array(
         'name'		=> 'SR Member',
-        'version'	=> '1.0.0'
+        'version'	=> '1.1'
     );
 
     var $has_array_data = TRUE;

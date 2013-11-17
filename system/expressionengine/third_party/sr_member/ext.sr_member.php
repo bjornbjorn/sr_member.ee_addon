@@ -31,7 +31,7 @@ class Sr_member_ext extends WDA_Extension {
     public $name			= 'SR Member';
 	public $description		= 'Link a member to a channel entry';
 	public $docs_url		= 'http://wedoaddons.com';
-	public $version			= '1.0';
+	public $version			= '1.1';
     public $settings_exist	= 'y';
 
     private $tag_prefix     = 'sr_member:';
