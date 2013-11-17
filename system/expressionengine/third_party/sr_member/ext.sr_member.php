@@ -70,6 +70,7 @@ class Sr_member_ext extends WDA_Extension {
             $this->EE->api->instantiate('channel_fields');
             $this->EE->api_channel_fields->fetch_custom_channel_fields();
 
+            $logged_in_member_id = $this->EE->session->userdata('member_id');
             $author_entry_id = $member_id;
             if($this->settings['sr_member_entry_author'] == 'admin') {
                 $author_entry_id = 1;
@@ -102,6 +103,13 @@ class Sr_member_ext extends WDA_Extension {
             }
 
             $success = $this->EE->api_channel_entries->save_entry($data, $channel_id);
+
+            if($logged_in_member_id != $author_entry_id) {
+                $this->EE->session->create_new_session($logged_in_member_id);
+                $this->EE->session->fetch_session_data();
+                $this->EE->session->fetch_member_data();
+            }
+
             if(!$success) {
                 show_error("Error - could not add information on member registration: ".print_r($this->EE->api_channel_entries->errors, true));
             }
