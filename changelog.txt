@@ -1,0 +1,15 @@
+Changelog for SR Member
+=======================
+The dates in this changelog use international date format: YYYY-MM-DD (ISO8601)
+
+1.2 - 2013-11-20
+----------------
+* Added support for creating members from the CP (this will now also create channel entries for the members) - re-enable extension to activate
+
+1.1 - 2013-11-17
+----------------
+* Bugfix: Fixed bug where logged in member would remain the user who created the entry
+
+1.0 - 2013-11-14
+----------------
+* Initial release
