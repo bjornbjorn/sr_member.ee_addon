@@ -123,12 +123,13 @@ class Sr_member_ext extends WDA_Extension {
 
                 $fields_arr = array();
                 $field_types_arr = array();
+                $member_tags_arr = array();
                 foreach($fields->result() as $field ) {
                     $fields_arr[$field->field_id] = $field->field_name;
                     $field_types_arr[$field->field_id] = $field->field_type;
+                    $member_tags_arr[$this->tag_prefix.$field->field_name] = '';    // just set empty for now
                 }
 
-                $member_tags_arr = array();
                 $sr_member_entry_ids = array();
 
                 foreach($sr_member_fields->result() as $sr_member_field) {
@@ -175,8 +176,9 @@ class Sr_member_ext extends WDA_Extension {
 
                 $member_tags_arr[$this->tag_prefix.'entry_id'] = implode('|', $sr_member_entry_ids);
 
-                ee()->config->_global_vars = array_merge($member_tags_arr, ee()->config->_global_vars);
             }
+
+            ee()->config->_global_vars = array_merge($member_tags_arr, ee()->config->_global_vars);
         }
     }
 
