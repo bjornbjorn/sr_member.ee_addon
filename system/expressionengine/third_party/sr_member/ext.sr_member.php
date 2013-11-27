@@ -128,6 +128,11 @@ class Sr_member_ext extends WDA_Extension {
                     $fields_arr[$field->field_id] = $field->field_name;
                     $field_types_arr[$field->field_id] = $field->field_type;
                     $member_tags_arr[$this->tag_prefix.$field->field_name] = '';    // just set empty for now
+
+                    if($field->field_type == 'assets' || $field->field_type == 'file') {
+                        $member_tags_arr[$this->tag_prefix.$field->field_name.':server_path'] = '';
+                        $member_tags_arr[$this->tag_prefix.$field->field_name.':file_name'] = '';
+                    }
                 }
 
                 $sr_member_entry_ids = array();
