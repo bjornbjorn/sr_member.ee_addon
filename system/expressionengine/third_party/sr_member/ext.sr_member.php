@@ -105,6 +105,7 @@ class Sr_member_ext extends WDA_Extension {
         if($sess->userdata['member_id'] && $this->settings['sr_member_channels_populate_on_member_register']) {
             $member_id = $sess->userdata['member_id'];
 
+            $member_tags_arr = array();
             $sr_member_fields = ee()->db->get_where('channel_fields', array('site_id' => ee()->config->item('site_id'), 'field_type' => 'sr_member'));
             if($sr_member_fields->num_rows() > 0) {
 
@@ -123,7 +124,6 @@ class Sr_member_ext extends WDA_Extension {
 
                 $fields_arr = array();
                 $field_types_arr = array();
-                $member_tags_arr = array();
                 foreach($fields->result() as $field ) {
                     $fields_arr[$field->field_id] = $field->field_name;
                     $field_types_arr[$field->field_id] = $field->field_type;
