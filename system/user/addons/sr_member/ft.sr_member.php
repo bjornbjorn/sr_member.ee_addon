@@ -1,6 +1,6 @@
 <?php if ( ! defined('BASEPATH')) exit('No direct script access allowed');
 
-require_once APPPATH.'fieldtypes/select/ft.select.php';
+require_once PATH_ADDONS.'select/ft.select.php';
 
 /**
  * Fieldtype to select projects
@@ -9,7 +9,7 @@ class Sr_member_ft extends Select_ft {
 
     var $info = array(
         'name'		=> 'SR Member',
-        'version'	=> '1.2'
+        'version'	=> '1.5'
     );
 
     var $has_array_data = TRUE;
